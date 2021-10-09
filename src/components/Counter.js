@@ -18,11 +18,11 @@ export default class Counter extends Component {
         this.setState({count:this.state.count-1})
     }
     reset =()=>{
-        this.setState({count:this.state.count=0})
+        this.setState({count:0})
     }
     static getDerivedStateFromProps(props, state) {
-        console.log("getDerivedStateFromProps", state)
-        return null
+        console.log("getDerivedStateFromProps",props, state)
+        return null;
     };
     shouldComponentUpdate(nextProps, nextState) {
         console.log("should update?")
@@ -36,7 +36,7 @@ export default class Counter extends Component {
         console.log("updated!")
     }
     getSnapshotBeforeUpdate = (prevProps, prevState) => {
-        console.log("snapshot",prevState)
+        console.log("snapshot",prevProps,prevState)
         return null;
     }
     componentWillUnmount() {
