@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
 import "./CounterStyle.css";
 export default class Counter extends Component {
-// Constructor is generally used for two main purposes:
-// this.stateCreating the local state by assigning an object to .
-// bind()Binding event methods to the component using the method .
-// Başlangıç state'i tanımlamak ve bir fonksiyonu componente bind etmek için en uygun yer constructor. Bu iki tanımlamaya ihtiyacınız yoksa constructor methodunu tanımlamayabilirsiniz.
+
+// Başlangıç state'i tanımlamak ve bir fonksiyonu componente bind etmek için en uygun yer constructor. 
+// Bu iki tanımlamaya ihtiyacınız yoksa constructor methodunu tanımlamayabilirsiniz.
     constructor(props) {
         super(props);
 
@@ -24,6 +23,8 @@ export default class Counter extends Component {
     reset =()=>{
         this.setState({count:0})
     }
+
+    //Bu methodumuz, component her yeni props aldığında çağrılır. ( render methodundan önce ) static bir fonksiyon olduğu için component'in diğer objelerine erişemez fakat props ve state diye iki parametreye sahip olduğu için, component'in geçmiş propslarını constructor methodunda state'e atıp, yeni gelen props'ları, props parametresi ile karşılaştırıp, kendi mantığınıza göre state'i güncelleyip, component'in tekrar render edilmesini ya da edilmemesini sağlayabilirsiniz.
     static getDerivedStateFromProps(props, state) {
         console.log("getDerivedStateFromProps",props, state)
         return null;
